@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Simpsons Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/">The Simpsons</a>
+              </div>
+              <ul class="nav navbar-nav">
+                  <li>
+                      <div class="dropdown">
+                          <button class="dropbtn">Graphs</button>
+                          <div class="dropdown-content">
+                            <a href="Static.html">Static</a>
+                            <a href="Homer.html">Homer</a>
+                            <a href="Dynamic.html">Dynamic</a>
+                          </div>
+                      </div>
+                  </li>
+                  <li><a href="map.html">Map</a></li>
+                  <li><a href="Race.html">Race</a></li>
+                  <li><a href="Search.html">Search</a></li>
+              </ul>
+  
+          </div>
+      </nav>
+      <h1>Simpsons Static Graphs</h1>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-char1">
+              <label for="First Character">First Character</label>
+              <select class="form-char1" id="dropdown-1">
+
+              </select>
+            </div>
+            <div class="form-char2">
+              <label for="Second Character">Second Character</label>
+              <select class="form-char2" id="dropdown-2">
+                
+              </select>
+            </div>
+            <div class="form-season">
+              <label for="Season">Season</label>
+              <select class="for-season" id="dropdown-3">
+                
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary">Find</button>
+  
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+      </div>
+    <footer class="footer">
+      <span class="bottom">Restaurant Types</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="../static/js/Dynamic.js"></script>
+</body>
+
+</html>

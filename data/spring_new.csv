@@ -1,0 +1,36 @@
+id,city,country,lat,lng,state
+0,Springfield,USA,31.8337654,-87.7619464,Alabama
+1,Springfield,USA,35.2675809,-92.5576595,Arkansas
+2,Springfield,USA,38.020966,-120.413277,California
+3,Springfield,USA,37.4083485,-102.6143616,Colorado
+4,Springfield,USA,30.1532572,-85.6113154,Florida
+5,Springfield,USA,32.3642241,-81.30418,Georgia
+6,Springfield,USA,43.08158,-112.6819324,Idaho
+7,Springfield,USA,39.7817213,-89.6501481,Illinois
+8,Springfield,USA,41.7153192,-86.7775264,Indiana
+9,Springfield,USA,37.6853413,-85.2221819,Kentucky
+10,Springfield,USA,30.4290818,-90.5487012,Louisiana
+11,Springfield,USA,45.376663,-68.1562304,Maine
+12,Springfield,USA,38.9928881,-76.7994147,Maryland
+13,Springfield,USA,42.1014831,-72.589811,Massachusetts
+14,Springfield,USA,42.3264298,-85.2391614,Michigan
+15,Springfield,USA,44.2388271,-94.9741654,Minnesota
+16,Springfield,USA,37.2089572,-93.2922989,Missouri
+17,Springfield,USA,41.0819432,-96.13446,Nebraska
+18,Springfield,USA,43.4950734,-72.0334187,New Hampshire
+19,Springfield,USA,40.7016937,-74.3222146,New Jersey
+20,Springfield,USA,42.836184,-74.8534838,New York
+21,Springfield,USA,35.9329145,-79.9872614,North Carolina
+22,Springfield,USA,39.9242266,-83.8088171,Ohio
+23,Springfield,USA,44.0462362,-123.0220289,Oregon
+24,Springfield,USA,39.9306677,-75.3201878,Pennsylvania
+25,Springfield,USA,33.4968163,-81.2792711,South Carolina
+26,Springfield,USA,42.8541657,-97.8972907,South Dakota
+27,Springfield,USA,36.5092118,-86.8849984,Tennessee
+28,Springfield,USA,27.7519707,-98.19445,Texas
+29,Springfield,USA,43.2984078,-72.4823117,Vermont
+30,Springfield,USA,17.731085,-64.8320903,Virgin Islands
+31,Springfield,USA,38.7892801,-77.1872036,Virginia
+32,Springfield,USA,39.450329,-78.6941834,West Virginia
+33,Springfield,USA,43.1543807,-89.5308903,Wisconsin
+34,Springfield,Scotland,56.29481,-3.060314,Fife
