@@ -70,6 +70,12 @@ def char_load():
     rv1=cur.fetchall()
     return jsonify(rv1)
 
+@app.route('/search/<input>')
+def search(input):
+    cur.execute('select season as "Season_No", season_episode_no as "Season_Episode_No", title, "" as "line", image_url as "image" from episodes where title like "%' + input + '%" union select e.season, e.season_episode_no, e.title, s.normalized_text, e.image_url from episodes e join s_lines s on e.episode_id=s.episode_id where s.normalized_text like "%'+input+'%" limit 500')
+    rv=cur.fetchall()
+    return jsonify(rv)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

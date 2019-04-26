@@ -35,31 +35,47 @@
   
           </div>
       </nav>
-      <h1>Simpsons Static Graphs</h1>
+      <h1>Simpsons Episode Search</h1>
     <div class="container">
       <div class="row margin-top-50">
-        <div class="row">
-          <div class="col-md-12">
-            <div id="-panelbar">
-              <canvas id="bar-chart" width="800" height="450"></canvas>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
+  
       <div class="row">
         <div class="col-md-12">
-          <div id="-panelscatter">
+          <div class="form-group">
+            <label for="search-element">Enter Search Word</label>
+            <input type="word" class="form-control" id="search-element" placeholder="search">
+            <small id="field-help" class="form-text text-muted">Enter "specific" search criteria.  Limited to 500 records returned</small>
+            <button type="button" class="btn btn-outline-primary" id="search-btn">Search</button>
           </div>
         </div>
-      </div>  
+      </div> 
+      <div class="row">
+        <div class="col-md-12">
+          <div id="table-area">
+            <table id="episode-data">
+              <thead>
+                <tr>
+                  <th class="table-head">Season#</th>
+                  <th class="table-head">Episode#</th>
+                  <th class="table-head">Title</th>
+                  <th class="table-head">Line (if applicable)</th>
+                  <th class="table-head">Image</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> 
       </div>
     <footer class="footer">
       <span class="bottom">Restaurant Types</span>
     </footer>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <script src="static/js/graph.js"></script>
+  <script src="static/js/Search.js"></script>
 </body>
 
 </html>
