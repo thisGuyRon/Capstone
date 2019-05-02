@@ -37,42 +37,76 @@
       </nav>
       <h1>Simpsons Static Graphs</h1>
     <div class="container">
-      <div class="row margin-top-50">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-2">
+              <div class="form-season">
+                  <label for="Season">Season</label>
+                  <select class="for-season" id="dropdown-3">
+                    
+                  </select>
+                </div>
             <div class="form-char1">
               <label for="First Character">First Character</label>
               <select class="form-char1" id="dropdown-1">
 
               </select>
             </div>
+            <button type="button" class="btn-char1">Load Character 1</button>
             <div class="form-char2">
               <label for="Second Character">Second Character</label>
               <select class="form-char2" id="dropdown-2">
                 
               </select>
             </div>
-            <div class="form-season">
-              <label for="Season">Season</label>
-              <select class="for-season" id="dropdown-3">
-                
-              </select>
-            </div>
-            <button type="button" class="btn btn-primary">Find</button>
+            <button type="button" class="btn-char2">Load Character 2</button>
   
             </div>
+            <div class="col-md-5">
+                <div class="char1-stats">
+                    <h1>Test Print</h1>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="char2-stats">
+                  <h1>Test Print</h1>
+                </div>
+            </div>
           </div>
-        </div>
-        <br>
-        <br>
-        
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <div id="char1-graph-lines">
+
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div id="char2-graph-lines">
+                  
+                </div>
+              </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+              <div class="col-md-6">
+                <div id="char1-graph-words">
+  
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div id="char2-graph-words">
+                    
+                  </div>
+                </div>
+            </div>
       </div>
-    <footer class="footer">
-      <span class="bottom">Restaurant Types</span>
-    </footer>
+        
   </div>
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="../static/js/Dynamic.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 
 </html>
