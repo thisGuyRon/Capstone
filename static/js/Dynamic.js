@@ -59,6 +59,22 @@ var characters = [
 ];
 var char1 = d3.select(".btn-char1");
 var char2 = d3.select(".btn-char2");
+var char1Head = d3.select("#char1-head");   
+var char1Totall = d3.select("#char1-totall");                   
+var char1Totalw = d3.select("#char1-totalw");                 
+var char1Appear = d3.select("#char1-appear");                 
+var char1Maxl = d3.select("#char1-maxl");                  
+var char1Maxw = d3.select("#char1-maxw");                 
+var char1Avgl = d3.select("#char1-avgl");                 
+var char1Avgw = d3.select("#char1-avgw");                   
+var char2Head = d3.select("#char2-head");                    
+var char2Totall = d3.select("#char2-totall");                   
+var char2Totalw = d3.select("#char2-totalw");                   
+var char2Appear = d3.select("#char2-appear");                   
+var char2Maxl = d3.select("#char2-maxl");                    
+var char2Maxw = d3.select("#char2-maxw");                    
+var char2Avgl = d3.select("#char2-avgl");                   
+var char2Avgw = d3.select("#char2-avgw");                   
 function init(){
     
     load_seasons();
@@ -172,6 +188,14 @@ function char1_load(){
                 type: 'scatter'
             };
             Plotly.newPlot('char1-graph-words', [trace2]);
+            char1Head.text(char1Value);
+            char1Totall.text("Total Lines: "+ lineTotal);
+            char1Totalw.text("Total words: " + wordTotal);
+            char1Appear.text("Seasons appeared in: " + appearances);
+            char1Avgl.text("Average Lines per Season: " + lineAverage);
+            char1Avgw.text("Average Words per Season: " + wordAverage);
+            char1Maxl.text("Max Lines in a season: " + lineMax);
+            char1Maxw.text("Max Words in a season: " + wordMax);
 
        }
        else{
@@ -225,6 +249,14 @@ function char1_load(){
             type: 'scatter'
         };
         Plotly.newPlot('char1-graph-words', [trace2]);
+        char1Head.text(char1Value);
+        char1Totall.text("Total Lines in season: "+ lineTotal);
+        char1Totalw.text("Total words in season: " + wordTotal);
+        char1Appear.text("Episodes appeared in: " + appearances);
+        char1Avgl.text("Average Lines per episode: " + lineAverage);
+        char1Avgw.text("Average Words per episode: " + wordAverage);
+        char1Maxl.text("Max Lines in a episode: " + lineMax);
+        char1Maxw.text("Max Words in a episode: " + wordMax);
        }
         console.log(character1[0].Episode);
         console.log(season);
@@ -280,6 +312,7 @@ function char2_load(){
                 }
                 wordAverage = wordTotal/appearances;
                 lineAverage = lineTotal/appearances;
+                
                 console.log(wordAverage);
                 console.log(lineAverage);
                 console.log(lineMax);
@@ -300,6 +333,14 @@ function char2_load(){
                     type: 'scatter'
                 };
                 Plotly.newPlot('char2-graph-words', [trace2]);
+                char2Head.text(char2Value);
+                char2Totall.text("Total Lines: "+ lineTotal);
+                char2Totalw.text("Total words: " + wordTotal);
+                char2Appear.text("Seasons appeared in: " + appearances);
+                char2Avgl.text("Average Lines per Season: " + lineAverage);
+                char2Avgw.text("Average Words per Season: " + wordAverage);
+                char2Maxl.text("Max Lines in a season: " + lineMax);
+                char2Maxw.text("Max Words in a season: " + wordMax);
     
            }
            else{
@@ -331,6 +372,8 @@ function char2_load(){
                 episodeLineCount.push(character2[x].Lines);
                 episodeWordCount.push(character2[x].Words);
             }
+            wordAverage = wordTotal/appearances;
+            lineAverage = lineTotal/appearances;
             console.log(wordAverage);
             console.log(lineAverage);
             console.log(lineMax);
@@ -351,6 +394,14 @@ function char2_load(){
                 type: 'scatter'
             };
             Plotly.newPlot('char2-graph-words', [trace2]);
+            char2Head.text(char2Value);
+            char2Totall.text("Total Lines in season: "+ lineTotal);
+            char2Totalw.text("Total words in season: " + wordTotal);
+            char2Appear.text("Episodes appeared in: " + appearances);
+            char2Avgl.text("Average Lines per episode: " + lineAverage);
+            char2Avgw.text("Average Words per episode: " + wordAverage);
+            char2Maxl.text("Max Lines in a episode: " + lineMax);
+            char2Maxw.text("Max Words in a episode: " + wordMax);
            }
     })
 }
