@@ -5,90 +5,97 @@
   <meta charset="utf-8">
   <title>Simpsons Analysis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-      <nav class="navbar navbar-default">
-          <div class="container-fluid">
-              <div class="navbar-header">
-                  <a class="navbar-brand" href="/">The Simpsons</a>
-              </div>
-              <ul class="nav navbar-nav">
-                  <li>
-                      <div class="dropdown">
-                          <button class="dropbtn">Graphs</button>
-                          <div class="dropdown-content">
-                            <a href="Static.html">Static</a>
-                            <a href="Homer.html">Homer</a>
-                            <a href="Dynamic.html">Dynamic</a>
-                          </div>
-                      </div>
-                  </li>
-                  <li><a href="map.html">Map</a></li>
-                  <li><a href="Race.html">Race</a></li>
-                  <li><a href="Search.html">Search</a></li>
-              </ul>
-  
-          </div>
-      </nav>
-    <div class="hero text-center">
-      <h1>The Simpsons</h1>
-      <p>The Simpsons</p>
-    </div>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container">
-      <div class="row margin-top-50">
-        <div class="col-md-2">
-          <aside class="filters">
-            <div class="panel panel-default">
-              <div class="panel-heading">Filter Search</div>
-              <div class="panel-body">
-                <form>
-                  <div class="form-group">
-                    <ul class="list-group" id="filters">
-                      <li class="filter list-group-item1">
-                        <label for="type">Enter Type</label>
-                        <select id="selectType"></select>
-                      </li>
-                      <li class="filter list-group-item2">
-                        <label for="type">Enter Price</label>
-                        <select id="selectPrice"></select>
-                      </li>
-                    </ul>
-                  </div>
-                  <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
-                </form>
-              </div>
-            </div>
-          </aside>
-        </div>
-        <div class="col-md-10">
-          <div id="table-area" class="">
-            <table id="ufo-table" class="table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Name</th>
-                  <th class="table-head">Type</th>
-                  <th class="table-head">Rating</th>
-                  <th class="table-head">Price</th>
-                  <th class="table-head">Address</th>
-                  <th class="table-head">City</th>
-                  <th class="table-head">Zip</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
+      <a class="nav-brand" href="/">742 Evergreen Terrace</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="map.html">Map</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="Static.html".html>Static</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Dynamic.html".html>Dynamic</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Homer.html".html>Homer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Race.html".html>Ready, Set, Doh</a>
+                  </li> 
+                  <li class="nav-item">
+                      <a class="nav-link" href="Search.html".html>Search</a>
+                    </li>
+        </ul>
       </div>
     </div>
-    <footer class="footer">
-      <span class="bottom">Simpsons</span>
-    </footer>
   </div>
+  <br>
+  <br>
+  <br>
+  <iframe width="1000" height="500" src="https://www.youtube.com/embed/Zy-owW1jVJg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <h1>
+    The Simpsons
+  </h1>
+  <p>
+      The Simpsons is an American animated sitcom created by Matt Groening for the Fox Broadcasting Company.  The series is a satirical depiction of working-class life, epitomized by the Simpson family, which consists of Homer, Marge, Bart, Lisa, and Maggie. The show is set in the fictional town of Springfield and parodies American culture and society, television, and the human condition.
+
+      The family was conceived by Groening shortly before a solicitation for a series of animated shorts with producer James L. Brooks. Groening created a dysfunctional family and named the characters after his own family members, substituting Bart for his own name. The shorts became a part of The Tracey Ullman Show on April 19, 1987. After three seasons, the sketch was developed into a half-hour prime time show and became Fox's first series to land in the Top 30 ratings in a season (1989–90).
+      https://en.wikipedia.org/wiki/The_Simpsons
+  </p>
+  <br>
+  <br>
+  <br>
+  <h2>
+    Aproach
+  </h2>
+  <p>
+    The goal of this project is to incorporate all material learned over the last seven months to investigate a personal favorite topic, The Simpsons.  Using the dataset found on kaggle.com of all Simpson episodes and lines seasons 1-27, a breakdown is provided over a variety of different subjects.  The technologies used are as follows:
+  </p>
+  <ul>
+    <li>
+      Python
+      <ul>
+        <li>Matplotlib</li>
+        <li>Flask</li>
+        <li>Pandas</li>
+        <li>APIs</li>
+        <li>Scikit Learn</li>
+      </ul>
+      </li>
+      <li>
+        MySQL
+      </li>
+      <li>
+        HTML
+      </li>
+      <li>
+        JavaScript
+        <ul>
+          <li>Leaflet</li>
+          <li>D3</li>
+          <li>Plotly</li>
+        </ul>
+      </li>
+  </ul>
+  
+  
+          
+      
+      
+ 
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <!--<script src="static/js/app.js"></script>--> 
 </body>
