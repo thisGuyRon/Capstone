@@ -25,7 +25,10 @@ function handleClick(){
             var lineData = row.append("td");
             lineData.text(dataRow.line);
             var picData = row.append("td");
-            picData.text(dataRow.image);
+            //picData.text(dataRow.image);
+            var picHTML = '<img src=' + dataRow.image + ' style="width:100px;height:75px;">'
+            //<img src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;">
+            picData.html(picHTML);
 
             
             console.log(dataRow.Season_Episode_No);

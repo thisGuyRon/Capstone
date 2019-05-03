@@ -183,6 +183,16 @@ select {
     content: attr(data-th);
   }
 
+  #form-control{
+    height: 30px;
+     width: 10px;
+  }
+
+  .search-pic{
+    height: 10px;
+    width: 10px;
+  }
+
   .hero h1 {
     animation: smaller-title 1.2s forwards linear;
   }
