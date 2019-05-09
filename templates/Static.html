@@ -47,13 +47,31 @@
       </div>
     </div>
   </div>
-      <h1>Simpsons Static Graphs</h1>
+      
+      <br>
+      <br>
     <div class="container">
-      <div class="row margin-top-50">
-        <div class="row">
+      <div class="row">
+        <div class="col-md-12">
+            <h1>Simpsons Static Graphs</h1>
+        </div>
+      </div>
+      <div class="row">
           <div class="col-md-12">
-            <div id="-panelbar">
-              <canvas id="bar-chart" width="800" height="450"></canvas>
+              <h2>IMDB Breakdown</h2>
+          </div>
+        </div> 
+        <div class="row">
+            
+          <div class="col-md-6">
+            
+            <div id="-sea-imdb">
+              <img src="../static/images/1Season_rating.png">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="epi-imdb">
+              <img src="../static/images/2Episode_rating.png">
             </div>
           </div>
         </div>
@@ -61,17 +79,56 @@
         <br>
       <div class="row">
         <div class="col-md-12">
-          <div id="-panelscatter">
+          <h2>Top 10 Characters Breakdown</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6" id="line-bd-all">
+            <img src="../static/images/3All_char_linecount.png">
+
+          </div>
+          <div class="col-lg-6">
+            <img src="../static/images/4All_char_wordcount.png">
           </div>
         </div>
       </div>  
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Top 10 Non-Simpson Family Character Breakdown</h2>
+        </div>
       </div>
-    <footer class="footer">
-      <span class="bottom">Restaurant Types</span>
-    </footer>
+      <div class="row">
+        <div class="col-lg-6">
+          <img src="../static/images/5NS_char_linecount.png">
+        </div>
+        <div class="col-md-6">
+          <img src="../static/images/6NS_char_wordcount.png">
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+        <h2>Male vs Female Breakdown</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../static/images/7gender_linecount.png">
+
+      </div>
+      <div class="col-md-6">
+        <img src="../static/images/7gender_wordcount.png">
+      </div>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <script src="static/js/graph.js"></script>
 </body>
 
 </html>
