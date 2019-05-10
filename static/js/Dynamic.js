@@ -29,8 +29,8 @@ var seasons = [
  {seasons:"23"},
  {seasons:"24"},
  {seasons:"25"},
- {seasons:"26"},
- {seasons:"27"}
+ {seasons:"26"}
+ //{seasons:"27"}
  
 ];
 //Character json for drop down load
@@ -156,6 +156,7 @@ char2.on("click", char2_load);
 function char1_load(){
     //prevent refresh
     d3.event.preventDefault();
+    season_imdb();
     //grab values from dropdowns
     var seasonInput=d3.select("#dropdown-3");
     var seasonValue = seasonInput.property("value");
@@ -304,6 +305,7 @@ function char1_load(){
 function char2_load(){
     //prevent refresh
     d3.event.preventDefault();
+    season_imdb();
     //grab values from dropdowns
     var seasonInput=d3.select("#dropdown-3");
     var seasonValue = seasonInput.property("value");
@@ -446,4 +448,105 @@ function char2_load(){
             char2Maxw.text("Max Words in a episode: " + wordMax);
            }
     })
+}
+//change the overall season/episode graph at bottom of page
+function season_imdb(){
+    console.log("test");
+    //grab season input value
+    var seasonInput=d3.select("#dropdown-3");
+    var seasonValue = seasonInput.property("value");
+    //grab area to print season data
+    var seasonArea = d3.select("#sea-epi-graph");
+    //clear pre-existing season data
+    seasonArea.html("");
+    
+    // switch graph of season on button press
+    switch (seasonValue){
+        case "All":
+            seasonArea.html('<img src="../static/images/AllSeason_imdb.png" width="900" length="200">');
+            console.log("test2");
+            break;
+        case "1":
+            seasonArea.html('<img src="../static/images/season1_imdb.png" width="900" length="200">');
+            break;
+        case "2":
+            seasonArea.html('<img src="../static/images/season2_imdb.png" width="900" length="200">');
+            break;
+        case "3":
+            seasonArea.html('<img src="../static/images/season3_imdb.png" width="900" length="200">');
+            break;
+        case "4":
+            seasonArea.html('<img src="../static/images/season4_imdb.png" width="900" length="200">');
+            break;
+        case "5":
+            seasonArea.html('<img src="../static/images/season5_imdb.png" width="900" length="200">');
+            break;
+        case "6":
+            seasonArea.html('<img src="../static/images/season6_imdb.png" width="900" length="200">');
+            break;
+        case "7":
+            seasonArea.html('<img src="../static/images/season7_imdb.png" width="900" length="200">');
+            break;
+        case "8":
+            seasonArea.html('<img src="../static/images/season8_imdb.png" width="900" length="200">');
+            break;
+        case "9":
+            seasonArea.html('<img src="../static/images/season9_imdb.png" width="900" length="200">');
+            break;
+        case "10":
+            seasonArea.html('<img src="../static/images/season10_imdb.png" width="900" length="200">');
+            break;
+        case "11":
+            seasonArea.html('<img src="../static/images/season11_imdb.png" width="900" length="200">');
+            break;
+        case "12":
+            seasonArea.html('<img src="../static/images/season12_imdb.png" width="900" length="200">');
+            break;
+        case "13":
+            seasonArea.html('<img src="../static/images/season13_imdb.png" width="900" length="200">');
+            break;
+        case "14":
+            seasonArea.html('<img src="../static/images/season14_imdb.png" width="900" length="200">');
+            break;
+        case "15":
+            seasonArea.html('<img src="../static/images/season15_imdb.png" width="900" length="200">');
+            break;
+        case "16":
+            seasonArea.html('<img src="../static/images/season16_imdb.png" width="900" length="200">');
+            break;
+        case "17":
+            seasonArea.html('<img src="../static/images/season17_imdb.png" width="900" length="200">');
+            break;
+        case "18":
+            seasonArea.html('<img src="../static/images/season18_imdb.png" width="900" length="200">');
+            break;
+        case "19":
+            seasonArea.html('<img src="../static/images/season19_imdb.png" width="900" length="200">');
+            break;
+        case "20":
+            seasonArea.html('<img src="../static/images/season20_imdb.png" width="900" length="200">');
+            break;
+        case "21":
+            seasonArea.html('<img src="../static/images/season21_imdb.png" width="900" length="200">');
+            break;
+        case "22":
+            seasonArea.html('<img src="../static/images/season22_imdb.png" width="900" length="200">');
+            break;
+        case "23":
+            seasonArea.html('<img src="../static/images/season23_imdb.png" width="900" length="200">');
+            break;
+        case "24":
+            seasonArea.html('<img src="../static/images/season24_imdb.png" width="900" length="200">');
+            break;
+        case "25":
+            seasonArea.html('<img src="../static/images/season25_imdb.png" width="900" length="200">');
+            break;
+        case "26":
+            seasonArea.html('<img src="../static/images/season26_imdb.png" width="900" length="200">');
+            break;
+        default:
+            seasonArea.html("");
+            break;
+
+    }
 }
