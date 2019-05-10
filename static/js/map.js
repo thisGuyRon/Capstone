@@ -12,24 +12,29 @@ var myMap = L.map("map", {
  }).addTo(myMap);
 
  var simpIcon = L.icon({
-    iconURL: "../static/images/The Simpsons-64.png"
+    iconUrl: "../static/images/Simpsons-64.png",
+    iconSize: [50,50]
  })
  var willieIcon = L.icon({
-    iconURL:"../images/willie.png"
+    iconUrl:"../static/images/willie.png",
+    iconSize: [30,30]
  })
 
 
 d3.json("/Springfield", function(data){
    console.log(data.length);
    for(x=0; x<data.length; x++){
-      //if (data[x].country==="USA"){
-        // L.marker([data[x].lat, data[x].lng], {icon: simpIcon}).addTo(myMap);
-      //}
-      //else{
-        // L.marker([data[x].lat, data[x].lng], {icon: willieIcon}).addTo(myMap);
-     // }
-      //console.log(data[x].id);
-      L.marker([data[x].lat, data[x].lng], {icon: simpIcon}).addTo(myMap);
+      if (data[x].country==="USA"){
+         L.marker([data[x].lat, data[x].lng], {icon: simpIcon})
+         .bindPopup(data[x].city + ", " + data[x].state + " " + data[x].country)
+         .addTo(myMap);
+      }
+      else{
+         L.marker([data[x].lat, data[x].lng], {icon: willieIcon})
+         .bindPopup(data[x].city + ", " + data[x].state + " " + data[x].country)
+         .addTo(myMap);
+      }
+      
    }
 
 
