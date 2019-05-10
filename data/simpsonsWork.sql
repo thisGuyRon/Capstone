@@ -85,3 +85,38 @@ use simpsons;
  
  select * from s_lines where word_count>200;
  
+ select * from episodes where season=2
+ 
+ 
+ use simpsons;
+ select * from s_lines;
+ 
+ use simpsons;
+ -- select (if s.character_id=1, 1, 0) as char_id, s.normalized_text from s_lines s join episodes e on s.episode_id=e.episode_idand e.season in (1,2);
+ select s.normalized_text as text, if(s.character_id=1,"Marge","not") as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3,4);
+ select if(1>2,"yes", "no")
+ 
+ select s.character_id, s.normalized_text from s_lines s join episodes e on e.episode_id=s.episode_id where e.season=3
+ 
+use simpsons;
+ select * from characters
+ 
+ select s.normalized_text as text, if(s.character_id=1,"Marge","not") as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and c.character_id in (1,2,8,9);
+ 
+ 
+ case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa"
+ 
+ select s.normalized_text as text, case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa" end as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and s.character_id in (1,2,8,9);
+ 
+ select s.normalized_text, s.character_id from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1) and s.character_id in (1,2,8,9); 
+ 
+select label, count(*) from (
+select s.normalized_text as text, case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa" end as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and s.character_id in (1,2,8,9)
+  ) a group by label;
+use simpsons;
+select label, count(*) from 
+((select s.normalized_text as text, "Marge" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=1 limit 1000, 2500) union (select s.normalized_text as text, "Homer" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=2 limit 1000, 2500) union (select s.normalized_text as text, "Bart" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=8 limit 1000, 2500) union (select s.normalized_text as text, "Lisa" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=9 limit 1000, 2500)) a group by label
+
+select * from s_lines where character_id in (1,2,8,9) order by episode_id desc
+
+
