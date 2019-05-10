@@ -207,20 +207,55 @@ function char1_load(){
             //calculate averages
             wordAverage = wordTotal/appearances;
             lineAverage = lineTotal/appearances;
+            //set title to graph
+            var plotTitleLines = char1Value + " Lines per All Seasons";
+            var plotTitleWords = char1Value + " Words per All Seasons";
             //create trace for plots
             var trace1 = {
                 x: season,
                 y: seasonLineCount,
                 type: 'scatter'
             };
-            Plotly.newPlot('char1-graph-lines', [trace1]);
+            //layout for char1 all seasons lines
+            var layout1 = {
+                title: {
+                    text: plotTitleLines
+                },
+                xaxis:{
+                    title:{
+                    text: "Season"
+                    }
+                },
+                yaxis:{
+                    title:{
+                    text:"Lines"
+                    }
+                }
+            };
+            Plotly.newPlot('char1-graph-lines', [trace1],layout1);
             //create trace for plots
             var trace2 = {
                 x: season,
                 y: seasonWordCount,
                 type: 'scatter'
             };
-            Plotly.newPlot('char1-graph-words', [trace2]);
+            //layout for char1 all seasons words
+            var layout2 = {
+                title: {
+                    text: plotTitleWords
+                },
+                xaxis:{
+                    title:{
+                    text: "Season"
+                    }
+                },
+                yaxis:{
+                    title:{
+                    text:"Words"
+                    }
+                }
+            };
+            Plotly.newPlot('char1-graph-words', [trace2], layout2);
             //print values in summary paragraph
             char1Head.text(char1Value);
             char1Totall.text("Total Lines: "+ lineTotal);
@@ -271,21 +306,58 @@ function char1_load(){
         //calculate averages
         wordAverage = wordTotal/appearances;
         lineAverage = lineTotal/appearances;
+
+        //set title to graph
+        var plotTitleLines = char1Value + " Lines per Episode, Season: " + seasonValue;
+        var plotTitleWords = char1Value + " Words per Episode, Season: " + seasonValue;
+
         //create trace for plotting
         var trace1 = {
             x: episodes,
             y: episodeLineCount,
             type: 'scatter'
         };
-        Plotly.newPlot('char1-graph-lines', [trace1]);
+        //layout for char1 specific season, lines
+        var layout1 = {
+            title: {
+                text: plotTitleLines
+            },
+            xaxis:{
+                title:{
+                text: "Episode"
+                }
+            },
+            yaxis:{
+                title:{
+                text:"Lines"
+                }
+            }
+        };
+        Plotly.newPlot('char1-graph-lines', [trace1], layout1);
         //create trace for plotting
         var trace2 = {
             x: episodes,
             y: episodeWordCount,
             type: 'scatter'
         };
+        //layout for char1 specific season, words
+        var layout2 = {
+            title: {
+                text: plotTitleWords
+            },
+            xaxis:{
+                title:{
+                text: "Episode"
+                }
+            },
+            yaxis:{
+                title:{
+                text:"Words"
+                }
+            }
+        };
         //print summary stats
-        Plotly.newPlot('char1-graph-words', [trace2]);
+        Plotly.newPlot('char1-graph-words', [trace2], layout2);
         char1Head.text(char1Value);
         char1Totall.text("Total Lines in season: "+ lineTotal);
         char1Totalw.text("Total words in season: " + wordTotal);
@@ -357,14 +429,31 @@ function char2_load(){
                 //calculate averages
                 wordAverage = wordTotal/appearances;
                 lineAverage = lineTotal/appearances;
-                
+                //set title for all season char2
+                var plotTitleLines = char2Value + " lines per All Seasons";
+                var plotTitleWords = char2Value + " Words per All Seasons";
                 //create trace for 2nd character
                 var trace1 = {
                     x: season,
                     y: seasonLineCount,
                     type: 'scatter'
                 };
-                Plotly.newPlot('char2-graph-lines', [trace1]);
+                var layout1 = {
+                    title: {
+                        text: plotTitleLines
+                    },
+                    xaxis:{
+                        title:{
+                        text: "Season"
+                        }
+                    },
+                    yaxis:{
+                        title:{
+                        text:"Lines"
+                        }
+                    }
+                };
+                Plotly.newPlot('char2-graph-lines', [trace1], layout1);
                 
                 //create 2nd trace for 2nd character
                 var trace2 = {
@@ -372,8 +461,24 @@ function char2_load(){
                     y: seasonWordCount,
                     type: 'scatter'
                 };
+                //layout for char1 all seasons words
+            var layout2 = {
+                title: {
+                    text: plotTitleWords
+                },
+                xaxis:{
+                    title:{
+                    text: "Season"
+                    }
+                },
+                yaxis:{
+                    title:{
+                    text:"Words"
+                    }
+                }
+            };
+                Plotly.newPlot('char2-graph-words', [trace2], layout2);
                 //summary values printed
-                Plotly.newPlot('char2-graph-words', [trace2]);
                 char2Head.text(char2Value);
                 char2Totall.text("Total Lines: "+ lineTotal);
                 char2Totalw.text("Total words: " + wordTotal);
@@ -423,21 +528,57 @@ function char2_load(){
             //set averages
             wordAverage = wordTotal/appearances;
             lineAverage = lineTotal/appearances;
+
+            //set title to graph
+        var plotTitleLines = char2Value + " Lines per Episode, Season: " + seasonValue;
+        var plotTitleWords = char2Value + " Words per Episode, Season: " + seasonValue;
             //create trace for 2nd character
             var trace1 = {
                 x: episodes,
                 y: episodeLineCount,
                 type: 'scatter'
             };
-            Plotly.newPlot('char2-graph-lines', [trace1]);
+            //layout for char2 specific season, lines
+        var layout1 = {
+            title: {
+                text: plotTitleLines
+            },
+            xaxis:{
+                title:{
+                text: "Episode"
+                }
+            },
+            yaxis:{
+                title:{
+                text:"Lines"
+                }
+            }
+        };
+            Plotly.newPlot('char2-graph-lines', [trace1], layout1);
             //create 2nd trace for 2nd character
             var trace2 = {
                 x: episodes,
                 y: episodeWordCount,
                 type: 'scatter'
             };
+            //layout for char1 specific season, words
+        var layout2 = {
+            title: {
+                text: plotTitleWords
+            },
+            xaxis:{
+                title:{
+                text: "Episode"
+                }
+            },
+            yaxis:{
+                title:{
+                text:"Words"
+                }
+            }
+        };
             //print summary stats for second character
-            Plotly.newPlot('char2-graph-words', [trace2]);
+            Plotly.newPlot('char2-graph-words', [trace2], layout2);
             char2Head.text(char2Value);
             char2Totall.text("Total Lines in season: "+ lineTotal);
             char2Totalw.text("Total words in season: " + wordTotal);
