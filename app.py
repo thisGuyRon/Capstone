@@ -41,9 +41,6 @@ def Static():
 @app.route('/map.html')
 def maps():
     return render_template('map.html')
-@app.route('/Homer.html')
-def Homer():
-    return render_template("Homer.html")
 @app.route('/Dynamic.html')
 def Dynamic():
     return render_template("Dynamic.html")
