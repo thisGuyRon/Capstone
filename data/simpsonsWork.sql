@@ -1,3 +1,5 @@
+
+-- clean up work
 select e.season, count(s.*) 
 from episodes e 
 join s_lines s on e.episode_id=s.episode_id
@@ -78,60 +80,37 @@ use simpsons;
  from episodes e 
  left join (select s.episode_id, count(s.line_id) as "Lines", sum(s.word_count) "Words" from s_lines s join characters c on s.character_id=c.char_id where c.name="Dr. Julius Hibbert" group by s.episode_id) a on e.episode_id=a.episode_id group by e.season order by e.season asc
  
- use simpsons;
- select count(*) from s_lines;
+
  
+ -- further cleaning data for incorrect datasets
  delete from s_lines where word_count>200;
- 
  select * from s_lines where word_count>200;
  
- select * from episodes where season=2
- 
- 
- use simpsons;
- select * from s_lines;
- 
- use simpsons;
- -- select (if s.character_id=1, 1, 0) as char_id, s.normalized_text from s_lines s join episodes e on s.episode_id=e.episode_idand e.season in (1,2);
- select s.normalized_text as text, if(s.character_id=1,"Marge","not") as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3,4);
- select if(1>2,"yes", "no")
- 
- select s.character_id, s.normalized_text from s_lines s join episodes e on e.episode_id=s.episode_id where e.season=3
- 
-use simpsons;
- select * from characters
- 
- select s.normalized_text as text, if(s.character_id=1,"Marge","not") as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and c.character_id in (1,2,8,9);
- 
- 
- case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa"
- 
- select s.normalized_text as text, case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa" end as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and s.character_id in (1,2,8,9);
- 
- select s.normalized_text, s.character_id from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1) and s.character_id in (1,2,8,9); 
- 
-select label, count(*) from (
-select s.normalized_text as text, case when s.character_id=1 then "Marge" when s.character_id=2 then "Homer" when s.character_id=8 then "Bart" when s.character_id=9 then "Lisa" end as label  from s_lines s join episodes e on s.episode_id=e.episode_id and e.season in (1,2,3) and s.character_id in (1,2,8,9)
-  ) a group by label;
-use simpsons;
-select label, count(*) from 
-((select s.normalized_text as text, "Marge" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=1 limit 1000, 2500) union (select s.normalized_text as text, "Homer" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=2 limit 1000, 2500) union (select s.normalized_text as text, "Bart" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=8 limit 1000, 2500) union (select s.normalized_text as text, "Lisa" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=9 limit 1000, 2500)) a group by label
 
-select * from s_lines where character_id in (1,2,8,9) order by episode_id desc
+ 
+ 
+-- check total number of lines for 4 main characters
+select * from s_lines where character_id in (1,2,8,9) order by episode_id desc;
+
+-- data set for machine learning text categorization, ML.ipynb
+(select s.normalized_text as text, "Marge" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=1 limit 1000, 2500)
+union
+(select s.normalized_text as text, "Homer" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=2 limit 1000, 2500) 
+union 
+(select s.normalized_text as text, "Bart" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=8 limit 1000, 2500) 
+union 
+(select s.normalized_text as text, "Lisa" as label from s_lines s join episodes e on s.episode_id=e.episode_id where s.character_id=9 limit 1000, 2500);
 
 
 
-
-
-
-
-
+-- grab user list of ids for the machine learning datasets
 select s.character_id from s_lines s group by s.character_id order by count(*) desc limit 40
 
-
+-- verify dataset of users
 select s.character_id, count(*) from s_lines s where s.character_id in 
 (2,1,8,9,15,17,3,11,31,25,71,139,101,165,208,14,211,170,40,332,22,18,140,153,1078,404,240,119,801,10,52,38,33,144,91,699,442,568,145,192) group by character_id
 
+-- create table for machine learning 1 gender predictor, ML_Simpsons.ipynb
 create table m_learning1
 select t.character_id, t.gender, t.line_count, t.word_count, 
 ifnull(s1.s1_lines,0), ifnull(s1.s1_words,0), 
@@ -212,16 +191,10 @@ left join
 left join
 (select s.character_id, count(*) as s25_lines, sum(s.word_count) as s25_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=25 where s.character_id in (2,1,8,9,15,17,3,11,31,25,71,139,101,165,208,14,211,170,40,332,22,18,140,153,1078,404,240,119,801,10,52,38,33,144,91,699,442,568,145,192) group by s.character_id) s25 on t.character_id=s25.character_id
 left join
-(select s.character_id, count(*) as s26_lines, sum(s.word_count) as s26_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=26 where s.character_id in (2,1,8,9,15,17,3,11,31,25,71,139,101,165,208,14,211,170,40,332,22,18,140,153,1078,404,240,119,801,10,52,38,33,144,91,699,442,568,145,192) group by s.character_id) s26 on t.character_id=s26.character_id
--- left join
--- (select s.character_id, count(*) as s27_lines, sum(s.word_count) as s27_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=27 where s.character_id in (2,1,8,9,15,17,3,11,31,25,71,139,101,165,208,14,211,170,40,332,22,18,140,153,1078,404,240,119,801,10,52,38,33,144,91,699,442,568,145,192) group by s.character_id) s27 on t.character_id=s27.character_id
-
-select s.character_id from s_lines s  join characters c on s.character_id=c.char_id  and c.gender="m" group by character_id order by count(*) desc limit 20
+(select s.character_id, count(*) as s26_lines, sum(s.word_count) as s26_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=26 where s.character_id in (2,1,8,9,15,17,3,11,31,25,71,139,101,165,208,14,211,170,40,332,22,18,140,153,1078,404,240,119,801,10,52,38,33,144,91,699,442,568,145,192) group by s.character_id) s26 on t.character_id=s26.character_id;
 
 
-1,9,40,22,10,192,464,1975,308,414,309,118,591,785,3057,4539,1875,6127,5947,1336,2,8,15,17,3,11,31,25,71,139,101,165,208,14,211,170,332,18,140,153
-
-
+-- created table for machine learning gender test 2, ML_Simpsons.ipynb
 create table m_learning2
 select t.character_id, t.gender, t.line_count, t.word_count, 
 ifnull(s1.s1_lines,0), ifnull(s1.s1_words,0), 
@@ -302,4 +275,4 @@ left join
 left join
 (select s.character_id, count(*) as s25_lines, sum(s.word_count) as s25_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=25 where s.character_id in (1,9,40,22,10,192,464,1975,308,414,309,118,591,785,3057,4539,1875,6127,5947,1336,2,8,15,17,3,11,31,25,71,139,101,165,208,14,211,170,332,18,140,153) group by s.character_id) s25 on t.character_id=s25.character_id
 left join
-(select s.character_id, count(*) as s26_lines, sum(s.word_count) as s26_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=26 where s.character_id in (1,9,40,22,10,192,464,1975,308,414,309,118,591,785,3057,4539,1875,6127,5947,1336,2,8,15,17,3,11,31,25,71,139,101,165,208,14,211,170,332,18,140,153) group by s.character_id) s26 on t.character_id=s26.character_id
+(select s.character_id, count(*) as s26_lines, sum(s.word_count) as s26_words from s_lines s join episodes e on e.episode_id=s.episode_id and e.season=26 where s.character_id in (1,9,40,22,10,192,464,1975,308,414,309,118,591,785,3057,4539,1875,6127,5947,1336,2,8,15,17,3,11,31,25,71,139,101,165,208,14,211,170,332,18,140,153) group by s.character_id) s26 on t.character_id=s26.character_id;
