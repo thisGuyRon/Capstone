@@ -1,5 +1,5 @@
 //map object creation
-const API_KEY = "pk.eyJ1IjoicmZhZ2dpb2xpIiwiYSI6ImNqdGxrbnc1dDAyaW80OXBkZXR1dXBrZGMifQ.viIT4Q7sPmkN870t_ovBjA";
+const API_KEY = //hidden
 
 var myMap = L.map("map", {
    center: [39.8283, -98.5795],
